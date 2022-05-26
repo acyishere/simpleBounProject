@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SimpleBoun</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="margin-bottom: 50px">
+        <h1>Update Course Name</h1>
+        <p>Please give the ID of a course that you give.</p>
+        <div class="d-flex justify-content-around" style="margin-top: 20px">
+          {% if fail %}
+          <div class="error">
+            <p>Course doesn't exist or another error has been occured!</p>
+          </div>
+          {% endif %} {% if success %}
+          <div class="success">
+            <p>Course name is updated successfully!</p>
+          </div>
+          {% endif %}
+          <form method="POST" action="query/">
+            {% csrf_token %}
+
+            <label for="course_id">Course ID:</label><br />
+            <input
+              type="text"
+              id="username"
+              name="course_id"
+              required
+            /><br /><br />
+
+            <label for="name">Course Name:</label><br />
+            <input type="text" id="label" name="name" required /><br /><br />
+
+            <input type="submit" value="Submit" />
+          </form>
+
+          <p>
+            <br />
+            You must update a course that already exists on system.
+          </p>
+
+          <form method="GET" novalidate action="..">
+            {% csrf_token %}
+            <button
+              type="submit"
+              style="margin-top: 10px"
+              class="btn btn-default"
+            >
+              return
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

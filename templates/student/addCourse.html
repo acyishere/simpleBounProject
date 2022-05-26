@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Add new Course</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="margin-bottom: 50px">
+        <h1>Add Course</h1>
+        <div class="d-flex justify-content-around" style="margin-top: 20px">
+          {% if fail %}
+          <div class="error">
+            <p>An error has been occured!</p>
+          </div>
+          {% endif %} {% if success %}
+          <div class="success">
+            <p>Course is added successfully!</p>
+          </div>
+          {% endif %}
+          <form method="POST" action="query/">
+            {% csrf_token %}
+
+            <label for="course_id">Course ID:</label><br />
+            <input
+              type="text"
+              id="courseid"
+              name="course_id"
+              required
+            /><br /><br />
+
+            <input type="submit" value="Submit" />
+          </form>
+
+          <p>
+            <br />
+            Notes:
+            <li>You can not take a course twice.</li>
+            <li>
+              You can take a course only if you have already given its
+              prerequisite courses.
+            </li>
+            <li>You can add a course only if its quota is not full.</li>
+            <br />
+          </p>
+
+          <form method="GET" novalidate action="..">
+            {% csrf_token %}
+            <button
+              type="submit"
+              style="margin-top: 10px"
+              class="btn btn-default"
+            >
+              return
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

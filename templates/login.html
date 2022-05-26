@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SimpleBoun</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+  </head>
+  <body class="full-height">
+    <div class="center-layout">
+      <div style="max-width: 500px">
+        <h1 style="text-align: center; margin-top: 0; margin-bottom: 50px">
+          Login As A {{ headerText }}
+        </h1>
+        {% if error_message %}
+        <div class="error">
+          <p>Your username or password is not correct!</p>
+        </div>
+        {% endif %}
+
+        <form method="POST" novalidate action="{% url formPostPath %}">
+          {% csrf_token %}
+          <label>Username:</label>
+          <input type="text" name="username" />
+          <br /><br />
+          <label>Password:</label>
+          <input type="password" name="password" />
+
+          <br /><br />
+          <button type="submit" class="btn btn-default" style="margin: 0 auto">
+            Login
+          </button>
+        </form>
+        <br />
+        <a href="/simpleboun">I am not a {{ bottomText }}</a>
+      </div>
+    </div>
+  </body>
+</html>

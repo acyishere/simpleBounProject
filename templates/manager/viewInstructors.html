@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SimpleBoun</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="margin-bottom: 50px">
+        <h1>View Instructors</h1>
+        <div class="d-flex justify-content-around" style="margin-top: 20px">
+          {% if fail %}
+          <div class="error">
+            <p>An error has been occured!</p>
+          </div>
+          {% endif %} {% if success %}
+          <div class="success">
+            <p></p>
+          </div>
+          {% endif %}
+
+          <table>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Title</th>
+            </tr>
+            {% for row in instructors %}
+            <tr>
+              {% for value in row %}
+              <td>{{value}}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+
+          <form method="GET" novalidate action="..">
+            {% csrf_token %}
+            <button
+              type="submit"
+              style="margin-top: 10px"
+              class="btn btn-default"
+            >
+              return
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

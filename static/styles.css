@@ -1,0 +1,66 @@
+:root {
+  --primary: #7fb5ff;
+  --dark: #001d6e;
+  --light: #c4ddff;
+  --contrast: #fee2c5;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+h1,
+h2 {
+  color: var(--dark);
+}
+
+.center-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  padding: 0 20px;
+  margin: 0;
+}
+
+.btn {
+  color: var(--primary);
+  border-color: var(--light);
+}
+
+.btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background-color: var(--light);
+}
+
+.btn.card {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+label {
+  color: var(--dark);
+}
+
+input {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.error {
+  color: red;
+}
+
+td,
+th {
+  padding: 5px 10px;
+  border: solid var(--light) 0.5px;
+}

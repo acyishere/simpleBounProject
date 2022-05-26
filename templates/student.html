@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SimpleBoun</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link href="{% static 'styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student "{{ name }}"</h1>
+      <h2>Operations</h2>
+      <div class="row">
+        <div class="col-xs-3">
+          <a href="viewCourses">
+            <div class="btn btn-default card">view courses</div>
+          </a>
+        </div>
+        <div class="col-xs-3">
+          <a href="addCourse">
+            <div class="btn btn-default card">add course</div>
+          </a>
+        </div>
+        <div class="col-xs-3">
+          <a href="viewTakenCourses">
+            <div class="btn btn-default card">View Taken Courses</div>
+          </a>
+        </div>
+        <div class="col-xs-3">
+          <a href="searchCourses">
+            <div class="btn btn-default card">search courses</div>
+          </a>
+        </div>
+        <div class="col-xs-3">
+          <a href="improvedCourseSearch">
+            <div class="btn btn-default card">improved course search</div>
+          </a>
+        </div>
+      </div>
+      <form method="POST" novalidate action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" style="margin-top: 10px" class="btn btn-default">
+          Logout
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

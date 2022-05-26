@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wellcome to Simple Boun!</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div
+        style="background-color: lavender"
+        class="jumbotron text-center bg-primary"
+      >
+        <h1>Welcome to Forum.</h1>
+        <p>Please login to proceed.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="d-flex justify-content-around" style="margin-top: 20px">
+          <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Login Failed</h4>
+            <p>Your username or password is not correct</p>
+          </div>
+          <form
+            class="form-group"
+            method="POST"
+            novalidate
+            action="{% url 'login' %}"
+          >
+            <button
+              type="submit"
+              style="margin-top: 10px"
+              class="btn btn-success"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
